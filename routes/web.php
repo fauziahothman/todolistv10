@@ -20,9 +20,9 @@ use Illuminate\Routing\Route as RoutingRoute;
 */
 
 // untk paparan semua query
-DB::listen(function ($event) {
-    dump($event->sql);
-});
+// DB::listen(function ($event) {
+//     dump($event->sql);
+// });
 
 Route::get('/', function () {
     return view('welcome');
