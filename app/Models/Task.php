@@ -21,6 +21,15 @@ class Task extends Model
 
     protected $guarded = ['id']; // field yg autogenerate
 
+function getRouteKeyName()
+{
+    return 'uuid';
+}
+
+
+
+
+
     /**
      * Get the user that owns the Task
      *
