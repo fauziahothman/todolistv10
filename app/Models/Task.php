@@ -33,4 +33,14 @@ class Task extends Model
 
     }
 
+    /**
+     * Get all of the comments for the Task
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'task_id', 'id');
+    }
+
 }
