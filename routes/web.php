@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MyFirstController;
 
@@ -15,6 +17,11 @@ use App\Http\Controllers\MyFirstController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// untk paparan semua query
+DB::listen(function ($event) {
+    dump($event->sql);
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,13 +38,11 @@ Route::get('/mylaravel/{nama?}', function ($nama='guest') {
 });
 
 
-// Route::get('/aboutus/{kem}', function ($kem) {
-//     return view('aboutus',compact('kem'));
-// });
-
 Route::get('/aboutus/{kementerian}', [MyFirstController::class,'aboutus']);
 
 Route::get('/users',[UserController::class,'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('tasks',[TaskController::class,'index']);

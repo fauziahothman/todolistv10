@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Task extends Model
+{
+    use HasFactory;
+
+    // type modcon pastu klik tab
+
+    public $timestamps = true;
+
+    protected $table = 'tasks';
+
+    protected $primaryKey = 'id';
+
+    public $incrementing = true;
+
+    protected $guarded = ['id']; // field yg autogenerate
+
+    /**
+     * Get the user that owns the Task
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    // belongsTo adalah singular
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+
+    }
+
+}
