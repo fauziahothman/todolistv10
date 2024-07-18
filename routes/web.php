@@ -46,11 +46,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('tasks',[TaskController::class,'index']);
+Route::get('tasks',[TaskController::class,'index'])->name('tasks.index');
 //kalau guna post, kena ada request
 Route::post('tasks/ajaxloadtasks',[TaskController::class,'ajaxloadtasks'])->name('tasks.ajaxloadtasks');
 
 Route::get('tasks/{task}',[TaskController::class,'show'])->name('tasks.show');
+Route::get('tasks/create',[TaskController::class,'create'])->name('tasks.create');
 
 
 

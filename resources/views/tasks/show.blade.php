@@ -1,9 +1,16 @@
 @extends('layouts.app')
 
+@section('breadcrumb')
+<li class="breadcrumb-item"><a href="javascript: void(0);">ToDoList</a></li>
+<li class="breadcrumb-item active"><a href="{{route('tasks.index')}}">Tasks</a></li>
+<li class="breadcrumb-item active">Show</li>
+
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Task Detail</div>
 
