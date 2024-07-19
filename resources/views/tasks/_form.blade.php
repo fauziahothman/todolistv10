@@ -14,7 +14,7 @@
             <select id="user_id" name="user_id" class="form-control {{ $errors->has('user_id') ? ' is-invalid' : '' }}" required >
 
                 @foreach ($users as $key=>$user)
-                <option {{old('user_id')== $key ?'selected' :''}} value=" {{$key}} ">{{ $user }}</option>
+                <option {{old('user_id')== $key ?'selected' :''}} value="{{$key}}">{{ $user }}</option>
                 @endforeach
             </select>
             <small class="text-danger">{{ $errors->first('user_id') }}</small>
@@ -40,3 +40,6 @@
         </div>
     </div>
 </div>
+
+
+
